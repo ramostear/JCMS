@@ -19,8 +19,8 @@ package org.jcms.system.admin.entity;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -34,9 +34,8 @@ import javax.persistence.Table;
 @Table(name="t_manager")
 public class Manager {
 	@Id
-	@Column(name="id")
+	@GeneratedValue
 	private int id;
-	
 	private String userName;
 	private String nickName;
 	private String password;
