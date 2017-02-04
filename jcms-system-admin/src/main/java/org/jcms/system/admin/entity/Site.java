@@ -43,15 +43,7 @@ public class Site {
 	private String dbName;
 	private String dbUsername;
 	private String dbPassword;
-	
-	
-	/**
-	 * 
-	 */
-	public Site() {
-	}
-
-
+	private String dbPort;
 	/**
 	 * @param id
 	 * @param name
@@ -65,10 +57,12 @@ public class Site {
 	 * @param dbName
 	 * @param dbUsername
 	 * @param dbPassword
+	 * @param dbPort
 	 */
 	public Site(int id, String name, String logo, String keyword,
 			String description, String address, String copyright, String email,
-			String tel, String dbName, String dbUsername, String dbPassword) {
+			String tel, String dbName, String dbUsername, String dbPassword,
+			String dbPort) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -82,201 +76,169 @@ public class Site {
 		this.dbName = dbName;
 		this.dbUsername = dbUsername;
 		this.dbPassword = dbPassword;
+		this.dbPort = dbPort;
 	}
-
-
+	/**
+	 * 
+	 */
+	public Site() {
+	}
 	/**
 	 * @return the id
 	 */
 	public int getId() {
 		return id;
 	}
-
-
 	/**
 	 * @param id the id to set
 	 */
 	public void setId(int id) {
 		this.id = id;
 	}
-
-
 	/**
 	 * @return the name
 	 */
 	public String getName() {
 		return name;
 	}
-
-
 	/**
 	 * @param name the name to set
 	 */
 	public void setName(String name) {
 		this.name = name;
 	}
-
-
 	/**
 	 * @return the logo
 	 */
 	public String getLogo() {
 		return logo;
 	}
-
-
 	/**
 	 * @param logo the logo to set
 	 */
 	public void setLogo(String logo) {
 		this.logo = logo;
 	}
-
-
 	/**
 	 * @return the keyword
 	 */
 	public String getKeyword() {
 		return keyword;
 	}
-
-
 	/**
 	 * @param keyword the keyword to set
 	 */
 	public void setKeyword(String keyword) {
 		this.keyword = keyword;
 	}
-
-
 	/**
 	 * @return the description
 	 */
 	public String getDescription() {
 		return description;
 	}
-
-
 	/**
 	 * @param description the description to set
 	 */
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
-
 	/**
 	 * @return the address
 	 */
 	public String getAddress() {
 		return address;
 	}
-
-
 	/**
 	 * @param address the address to set
 	 */
 	public void setAddress(String address) {
 		this.address = address;
 	}
-
-
 	/**
 	 * @return the copyright
 	 */
 	public String getCopyright() {
 		return copyright;
 	}
-
-
 	/**
 	 * @param copyright the copyright to set
 	 */
 	public void setCopyright(String copyright) {
 		this.copyright = copyright;
 	}
-
-
 	/**
 	 * @return the email
 	 */
 	public String getEmail() {
 		return email;
 	}
-
-
 	/**
 	 * @param email the email to set
 	 */
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-
 	/**
 	 * @return the tel
 	 */
 	public String getTel() {
 		return tel;
 	}
-
-
 	/**
 	 * @param tel the tel to set
 	 */
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
-
-
 	/**
 	 * @return the dbName
 	 */
 	public String getDbName() {
 		return dbName;
 	}
-
-
 	/**
 	 * @param dbName the dbName to set
 	 */
 	public void setDbName(String dbName) {
 		this.dbName = dbName;
 	}
-
-
 	/**
 	 * @return the dbUsername
 	 */
 	public String getDbUsername() {
 		return dbUsername;
 	}
-
-
 	/**
 	 * @param dbUsername the dbUsername to set
 	 */
 	public void setDbUsername(String dbUsername) {
 		this.dbUsername = dbUsername;
 	}
-
-
 	/**
 	 * @return the dbPassword
 	 */
 	public String getDbPassword() {
 		return dbPassword;
 	}
-
-
 	/**
 	 * @param dbPassword the dbPassword to set
 	 */
 	public void setDbPassword(String dbPassword) {
 		this.dbPassword = dbPassword;
 	}
-
-
+	/**
+	 * @return the dbPort
+	 */
+	public String getDbPort() {
+		return dbPort;
+	}
+	/**
+	 * @param dbPort the dbPort to set
+	 */
+	public void setDbPort(String dbPort) {
+		this.dbPort = dbPort;
+	}
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */
@@ -290,6 +252,7 @@ public class Site {
 		result = prime * result + ((dbName == null) ? 0 : dbName.hashCode());
 		result = prime * result
 				+ ((dbPassword == null) ? 0 : dbPassword.hashCode());
+		result = prime * result + ((dbPort == null) ? 0 : dbPort.hashCode());
 		result = prime * result
 				+ ((dbUsername == null) ? 0 : dbUsername.hashCode());
 		result = prime * result
@@ -302,8 +265,6 @@ public class Site {
 		result = prime * result + ((tel == null) ? 0 : tel.hashCode());
 		return result;
 	}
-
-
 	/* (non-Javadoc)
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
@@ -335,6 +296,11 @@ public class Site {
 			if (other.dbPassword != null)
 				return false;
 		} else if (!dbPassword.equals(other.dbPassword))
+			return false;
+		if (dbPort == null) {
+			if (other.dbPort != null)
+				return false;
+		} else if (!dbPort.equals(other.dbPort))
 			return false;
 		if (dbUsername == null) {
 			if (other.dbUsername != null)
@@ -375,8 +341,6 @@ public class Site {
 			return false;
 		return true;
 	}
-
-
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
@@ -387,8 +351,6 @@ public class Site {
 				+ ", address=" + address + ", copyright=" + copyright
 				+ ", email=" + email + ", tel=" + tel + ", dbName=" + dbName
 				+ ", dbUsername=" + dbUsername + ", dbPassword=" + dbPassword
-				+ "]";
+				+ ", dbPort=" + dbPort + "]";
 	}
-
-	
 }
