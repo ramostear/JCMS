@@ -16,13 +16,18 @@
  */
 package org.jcms.system.web.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.jcms.system.admin.entity.Manager;
 import org.jcms.system.admin.service.ManagerService;
+import org.jcms.system.web.constants.SystemContant;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -66,16 +71,29 @@ public class ManagerController extends BaseController{
 		model.addAttribute("op", "添加管理员");
 		return "manager/edit";
 	}
-	
+	@RequestMapping(value="/save",method=RequestMethod.POST)
 	public void saveManager(@RequestParam(value="userName")String userName,
 			@RequestParam(value="nickName")String nickName,
 			@RequestParam(value="password")String password,
-			@RequestParam(value="roleIds")String roleIds){
-		
-		
-		
-		
-		
+			@RequestParam(value="roleIds")String roleIds,
+			HttpServletRequest request,HttpServletResponse response){
+		HttpSession session = request.getSession();
+		Manager currm = (Manager)session.getAttribute(SystemContant.LOGIN_MANAGER);
+		Manager m = new Manager();
+		m.setCreateTime(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+		m.setCreator(currm.getNickName());
+		m.setCreatorId(currm.getId());
+		m.setNickName(nickName);
+		m.setPassword(password);
+		m.setRoleIds(roleIds);
+		m.setUserName(userName);
+		this.managerService.saveManager(m);
+		this.writeToPage(response, "{\"status\":\"success\",\"msg\":\""+m.getNickName()+"创建成功！\"}");
+	}
+	@RequestMapping(value="/size",method=RequestMethod.GET)
+	public void size(HttpServletResponse response){
+		long size = this.managerService.size();
+		this.writeToPage(response, size);
 	}
 
 }
