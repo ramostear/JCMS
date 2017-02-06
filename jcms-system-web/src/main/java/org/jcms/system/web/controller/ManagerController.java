@@ -55,7 +55,7 @@ public class ManagerController extends BaseController{
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index(Model model) {
 		model.addAttribute("op", "添加管理员");
-		return "manager/list";
+		return "admin/manager/list";
 	}
 
 	@RequestMapping(value="/list",method=RequestMethod.GET)
@@ -69,7 +69,7 @@ public class ManagerController extends BaseController{
 	@RequestMapping(value="/save",method=RequestMethod.GET)
 	public String saveManager(Model model){
 		model.addAttribute("op", "添加管理员");
-		return "manager/edit";
+		return "admin/manager/edit";
 	}
 	@RequestMapping(value="/save",method=RequestMethod.POST)
 	public void saveManager(@RequestParam(value="userName")String userName,
