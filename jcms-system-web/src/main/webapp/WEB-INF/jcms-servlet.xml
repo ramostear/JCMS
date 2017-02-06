@@ -14,7 +14,7 @@
     <!--文件上传目录  -->
     <mvc:resources location="/upload/" mapping="/upload/**"/>
     <!--Controller的扫描路径  -->
-	<context:component-scan base-package="com.taoliyun.web.controller"/>
+	<context:component-scan base-package="org.jcms.system.web.controller"/>
     <!--避免在IE浏览器下ajax请求时，返回json出现下载  -->
     <!-- <bean id="jacksonMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
     	<property name="supportedMediaTypes">

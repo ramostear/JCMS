@@ -3,15 +3,15 @@
 	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	id="WebApp_ID" version="2.5">
-	<display-name>Taoliyun-platform</display-name>
+	<display-name>jcms-system</display-name>
 	<!--配置SpringMvc  -->
 	<servlet>
-		<servlet-name>taoliyun</servlet-name>
+		<servlet-name>jcms</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<load-on-startup>2</load-on-startup>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>taoliyun</servlet-name>
+		<servlet-name>jcms</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 	<listener>
