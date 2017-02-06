@@ -1,0 +1,214 @@
+html, body {
+	height: 80%;
+}
+
+.logins {
+	height: auto;
+	right: 0;
+	padding: 0 0 25px 0;
+	position: absolute;
+	top: 17%;
+	width: 400px;
+	z-index: 5;
+	background: #fff;
+	border-radius: 2px;
+	font-size: 14px;
+	margin-bottom: 0;
+}
+
+.headers {
+	background: #fff;
+}
+
+.head_login {
+	width: 1220px;
+	margin: 0 auto;
+}
+
+.slogan {
+	position: absolute;
+	right: 48%;
+}
+
+.head_login {
+	padding: 25px 0 20px 0;
+}
+
+body {
+	background: rgba(0, 0, 0, 0) url(../img/login_bgs.png) no-repeat
+		center center/cover;
+}
+
+.logins form, .states {
+	display: block;
+	width: 305px;
+	clear: both;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.tc {
+	text-align: center;
+}
+
+.promptInpt {
+	display: block;
+	height: 0;
+	margin: 0 auto;
+	position: relative;
+	width: 200px;
+}
+
+.promptInpt p {
+	color: #bbb;
+	display: block;
+	height: 20px;
+	left: -35px;
+	margin-bottom: 0;
+	margin-top: 0;
+	position: absolute;
+	top: 10px;
+	width: 180px;
+	font-size: 14px;
+}
+
+.box_tab {
+	text-align: center;
+	margin: 25px 0 20px 0;
+	font-size: 18px;
+}
+
+.box_tab span {
+	margin-left: 15px;
+	vertical-align: middle;
+}
+
+.box_tab img {
+	vertical-align: middle;
+	margin-bottom: 2px;
+}
+
+.H10 {
+	height: 10px;
+}
+
+.logins input {
+	border-color: #fff;
+	border-radius: 1px;
+	display: block;
+	height: 20px;
+	line-height: 20px;
+	margin-bottom: 10px;
+	padding: 10px 10px 10px 20px;
+}
+
+.box_div input {
+	background: #fff;
+	width: 275px;
+	border: 1px solid #eee;
+}
+
+.prompt {
+	min-height: 24px;
+}
+
+.prompt-error {
+	background: url(/Public/images/land/ico100.png) no-repeat 0 6px;
+	color: #ff5758;
+	min-height: 24px;
+	line-height: 24px;
+	padding-left: 20px;
+}
+
+.logins input.bntH40 {
+	background: #24a9f6;
+	border: 0;
+	font-size: 18px;
+	height: 40px;
+	line-height: 20px;
+	padding: 10px 0;
+	width: 305px;
+	color: #fff;
+}
+
+.stat {
+	color: #888888;
+	text-align: center;
+	width: 100%;
+}
+
+.states .checkbox {
+	padding-left: 25px;
+	font-size: 12px;
+}
+
+.fl {
+	float: left;
+}
+
+.states .checkbox .icons {
+	top: -1px;
+}
+
+.checkbox .fui-checkbox-unchecked {
+	width: 16px;
+	height: 16px;
+	background: url(/Public/images/check.png);
+	display: inline-block;
+}
+
+.checkbox .fui-checkbox-unchecked:hover {
+	width: 16px;
+	height: 16px;
+	background: url(/Public/images/check_select.png);
+	display: inline-block;
+}
+
+.checked .fui-checkbox-checked {
+	width: 16px;
+	height: 16px;
+	background: url(/Public/images/checked.png);
+	display: inline-block;
+}
+
+.fr {
+	float: right;
+}
+
+.stat a {
+	color: #888;
+	font-size: 12px;
+}
+
+.logins input.verification-code {
+	padding-left: 20px;
+	width: 133px;
+	border: 1px solid #eee;
+}
+
+.verification-code-img {
+	background-color: #eff3f6;
+	border: 1px solid #eeeeee;
+	border-radius: 2px;
+	display: block;
+	height: 38px;
+	margin-left: 20px;
+	text-align: center;
+	width: 117px;
+}
+
+.foot_bottom {
+	background: #fff;
+	bottom: 0;
+	color: #999999;
+	font-size: 14px;
+	padding: 25px 0 30px;
+	position: fixed;
+	width: 100%;
+}
+
+@media only screen and (min-width: 1024px) {
+	.logins {
+		right: 13%;
+	}
+}
