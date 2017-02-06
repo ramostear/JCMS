@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
+    
+    <!--扫描controller  -->
+    <mvc:annotation-driven/>
+    <!--静态资源文件配置  -->
+    <mvc:resources location="/static/" mapping="/static/**"/>
+    <!--文件上传目录  -->
+    <mvc:resources location="/upload/" mapping="/upload/**"/>
+    <!--Controller的扫描路径  -->
+	<context:component-scan base-package="com.taoliyun.web.controller"/>
+    <!--避免在IE浏览器下ajax请求时，返回json出现下载  -->
+    <!-- <bean id="jacksonMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+    	<property name="supportedMediaTypes">
+    		<list>
+    			<value>text/html;charset=UTF-8</value>
+    		</list>
+    	</property>
+    </bean> -->
+	<!--对数据模型视图添加前后缀  -->    
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+    <!-- 文件解析器 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize">
+			<value>10000000</value>
+		</property> 
+        <property name="defaultEncoding">
+        	<value>UTF-8</value>
+        </property> 
+	</bean>
+</beans>
