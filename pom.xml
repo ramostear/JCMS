@@ -50,5 +50,6 @@
   	<module>jcms-base-dao</module>
   	<module>jcms-system-admin</module>
     <module>jcms-system-web</module>
+    <module>jcms-system-utils</module>
   </modules>
 </project>

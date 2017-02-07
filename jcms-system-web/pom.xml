@@ -147,6 +147,11 @@
 			<artifactId>jcms-system-admin</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.abihu</groupId>
+			<artifactId>jcms-system-utils</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>jcms-system-web</finalName>

@@ -22,7 +22,13 @@ package org.jcms.system.web.constants;
  * @Description:
  */
 public class SystemContant {
-	
+	/**
+	 * 登录的管理员
+	 */
 	public static final String LOGIN_MANAGER = "loginManager";
+	/**
+	 * 验证码
+	 */
+	public static final String VERIFY_CODE = "verCode";
 
 }

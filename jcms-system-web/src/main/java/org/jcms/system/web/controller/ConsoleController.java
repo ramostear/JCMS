@@ -16,8 +16,12 @@
  */
 package org.jcms.system.web.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * @Author Abihu[谭朝红] - - -2017年2月6日-下午3:14:54
@@ -28,9 +32,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/console/manager")
 public class ConsoleController {
 	
-	@RequestMapping(value="/signin")
+	@RequestMapping(value="/signin",method=RequestMethod.GET)
 	public String login(){
 		return "login";
+	}
+	@RequestMapping(value="/signin",method=RequestMethod.POST)
+	public String login(Model model,HttpServletRequest request){
+		return "index";
+	}
+	@RequestMapping(value="/signon",method=RequestMethod.POST)
+	public String logout(){
+		return "redirect:/console/manager/signin";
 	}
 
 }
