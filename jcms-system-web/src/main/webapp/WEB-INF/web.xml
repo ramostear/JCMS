@@ -49,6 +49,15 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>	
+	<servlet>
+		<description>验证码生成器Servlet</description>
+		<servlet-name>verifyCodeServlet</servlet-name>
+		<servlet-class>org.jcms.system.web.servlet.VerifyCodeServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>verifyCodeServlet</servlet-name>
+		<url-pattern>/verCode</url-pattern>
+	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
