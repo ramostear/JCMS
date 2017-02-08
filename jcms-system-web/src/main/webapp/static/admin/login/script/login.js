@@ -158,56 +158,47 @@ login.submit = function(){
 //登录
 login._proc = function() {
 	var params = {};
-	params.email  = $('.login-email').val();
-	params.pwd    = $('.login-pwd').val();
+	params.userName  = $('.login-email').val();
+	params.password    = $('.login-pwd').val();
 	params.code   = $('.login-code').val();
-	params.code_id = 'login';
-	params.remberPass = $('.login-remberPass').is(':checked')?1:0;
 	
-	
-	if (!params.email) {
+	if (!params.userName) {
 		login.showError('请输入用户名');
 		$('.login-email').focus();
 		return false;
 	}
-	if (!params.pwd) {
+	if (!params.password) {
 		login.showError('请输入密码');
 		$('.login-pwd').focus();
 		return false;
 	}
-	if($('.verify').val() >= 3){
-		if (!params.code) {
-			login.showError('请输入验证码');
-			$('.login-code').focus();
-			return false;
-		}
+	if (!params.code) {
+		login.showError('请输入验证码');
+		$('.login-code').focus();
+		return false;
 	}
 	login.hideError();
 	
 	// 提交数据 
 	$.ajax({
-		url : '/login/procLogin',
-		type: 'post',
+		url : $(".path").val()+'/console/manager/check',
+		type: 'get',
 		dataType: 'json',
-		data: params,
+		data: {userName:params.userName,password:params.password},
 //		async: false,
 		success: function(json) {
-			if (json.status == -1234) {
-				location.href=json.info;
-			}
-			if (json.status == 1) {
-				location.href = json.info;
-			} else {
-				$('.verify').val(parseInt($('.verify').val()) + 1);
-				if(parseInt($('.verify').val()) >= 3){
-					$('#verify').show();
-				}
+			if (json.status == 100) {
 				login.showError(json.info);
+			}
+			if (json.status == 200) {
+				login.signin(params);
 			}
 		}
 	});
 }
-
+login.signin = function(params){
+	$("form").submit();
+}
 login.showError = function(msg){
 	$('.verification-code').val('');
 	$('.verification-code-img').click();

@@ -95,5 +95,14 @@ public class ManagerController extends BaseController{
 		long size = this.managerService.size();
 		this.writeToPage(response, size);
 	}
+	@RequestMapping("/main")
+	public String main(HttpServletRequest request,Model molde){
+		HttpSession session = request.getSession(true);
+		Manager m = (Manager)session.getAttribute(SystemContant.LOGIN_MANAGER);
+		if(m==null){
+			return "redirect:/console/manager/signin";
+		}
+		return "index";
+	}
 
 }

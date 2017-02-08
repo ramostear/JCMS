@@ -54,7 +54,7 @@ public class VerifyCodeServlet extends HttpServlet implements Servlet {
         //4.存入当前新的验证码字符串
         session.setAttribute(SystemContant.VERIFY_CODE, verifyCode);
         //5.生成验证码图片
-        int w=100,h=30;
+        int w=119,h=40;
         VerifyCodeUtil.outputImage(w, h, response.getOutputStream(), verifyCode);
 	}
 }

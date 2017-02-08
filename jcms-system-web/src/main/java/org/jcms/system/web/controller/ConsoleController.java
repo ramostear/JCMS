@@ -16,12 +16,19 @@
  */
 package org.jcms.system.web.controller;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import org.jcms.system.admin.entity.Manager;
+import org.jcms.system.admin.service.ManagerService;
+import org.jcms.system.web.constants.SystemContant;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * @Author Abihu[谭朝红] - - -2017年2月6日-下午3:14:54
@@ -30,18 +37,62 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 @RequestMapping("/console/manager")
-public class ConsoleController {
+public class ConsoleController extends BaseController{
+	
+	private ManagerService managerService;
+	
+	/**
+	 * @param managerService the managerService to set
+	 */
+	@Resource
+	public void setManagerService(ManagerService managerService) {
+		this.managerService = managerService;
+	}
+	
 	
 	@RequestMapping(value="/signin",method=RequestMethod.GET)
 	public String login(){
 		return "login";
 	}
 	@RequestMapping(value="/signin",method=RequestMethod.POST)
-	public String login(Model model,HttpServletRequest request){
-		return "index";
+	public String login(@RequestParam(value="userName")String userName,
+			@RequestParam(value="password")String password,
+			@RequestParam(value="verifyCode")String verifyCode,
+			Model model,HttpServletRequest request){
+		System.out.println(userName+"=="+password+"==="+verifyCode);
+		HttpSession session = request.getSession(true);
+		String code1 = (String)session.getAttribute(SystemContant.VERIFY_CODE);
+		if(!code1.equals(verifyCode)){
+			model.addAttribute("error", "验证码不正确");
+			model.addAttribute("userName", userName);
+			model.addAttribute("password", password);
+			return "login";
+		}else{
+			Manager m = this.managerService.findByName(userName);
+			if(m!=null){
+				session.setAttribute(SystemContant.LOGIN_MANAGER, m);
+				return "redirect:/admin/manager/main";
+			}else{
+				model.addAttribute("error", "用户名或密码不正确");
+				return "login";
+			}
+		}
 	}
-	@RequestMapping(value="/signon",method=RequestMethod.POST)
-	public String logout(){
+	@RequestMapping(value="/check",method=RequestMethod.GET)
+	public void checkUsernameAndPwd(@RequestParam(value="userName")String userName,
+			@RequestParam(value="password")String password,
+			HttpServletResponse response){
+		Manager m = this.managerService.findByName(userName);
+		if(m==null||!m.getPassword().equals(password)){
+			this.writeToPage(response, "{\"status\":\"100\",\"info\":\"用户名或密码不正确\"}");
+		}else{
+			this.writeToPage(response, "{\"status\":\"200\",\"info\":\"ok\"}");
+		}
+	}
+	@RequestMapping(value="/signon",method=RequestMethod.GET)
+	public String logout(HttpServletRequest request){
+		HttpSession session = request.getSession(true);
+		session.removeAttribute(SystemContant.LOGIN_MANAGER);
 		return "redirect:/console/manager/signin";
 	}
 
