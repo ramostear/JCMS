@@ -1,0 +1,14 @@
+/*导入核心文件*/
+@import "core/colorset.less";
+@import "core/variables.less";
+@import "core/basic.less";
+@import "core/mixins.less";
+
+/*自定义组件*/
+@import "component/navbar.less";    //顶部导航栏
+@import "component/sidebar.less";
+@import "component/prove.less";     //表单提示信息样式
+@import "component/foodspan.less";   //每日菜单菜名样式
+@import "component/navs.less";
+
+@import "pages/main/index.less";    //index页面样式文件

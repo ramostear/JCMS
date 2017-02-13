@@ -1,0 +1,14 @@
+.prove.error input{                     //错误提示时显示红色边框，黄色背景
+    border: 1px #f00 solid;
+    background-color: #FBF9BB;
+}   
+.prove .valid_message {                 //点击输入框提示绿字
+    color: #32BC61;
+}
+            
+.prove.error .valid_message {           //错误提示红色字体
+    color: #f00;
+}
+.prove.success input{                   //信息验证正确显示绿色边框
+    border: 1px solid #32BC61;
+}

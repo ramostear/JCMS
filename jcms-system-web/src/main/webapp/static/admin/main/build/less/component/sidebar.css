@@ -1,0 +1,17 @@
+.sidebar {
+  width: 100%;
+  max-width: 360px;
+}
+.sidebar .link {
+  cursor: pointer;
+  display: block;
+  padding: 15px 15px 15px 42px;
+  color: #4D4D4D;
+  font-size: 14px;
+  font-weight: 700;
+  position: relative;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+/*# sourceMappingURL=sidebar.css.map */

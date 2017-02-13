@@ -37,6 +37,7 @@ public class Permission {
 	private int parentId;
 	private String icon;
 	private String url;
+	private String type;
 	
 	/**
 	 * 
@@ -53,7 +54,7 @@ public class Permission {
 	 * @param url
 	 */
 	public Permission(int id, String name, String permission, int parentId,
-			String icon, String url) {
+			String icon, String url,String type) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -61,6 +62,7 @@ public class Permission {
 		this.parentId = parentId;
 		this.icon = icon;
 		this.url = url;
+		this.type = type;
 	}
 
 	/**
@@ -147,6 +149,20 @@ public class Permission {
 		this.url = url;
 	}
 
+	/**
+	 * @param type the type to set
+	 */
+	public void setType(String type) {
+		this.type = type;
+	}
+	
+	/**
+	 * @return the type
+	 */
+	public String getType() {
+		return type;
+	}
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */
@@ -160,6 +176,7 @@ public class Permission {
 		result = prime * result + parentId;
 		result = prime * result
 				+ ((permission == null) ? 0 : permission.hashCode());
+		result = prime * result + ((type == null) ? 0 : type.hashCode());
 		result = prime * result + ((url == null) ? 0 : url.hashCode());
 		return result;
 	}
@@ -195,6 +212,11 @@ public class Permission {
 				return false;
 		} else if (!permission.equals(other.permission))
 			return false;
+		if (type == null) {
+			if (other.type != null)
+				return false;
+		} else if (!type.equals(other.type))
+			return false;
 		if (url == null) {
 			if (other.url != null)
 				return false;
@@ -210,6 +232,6 @@ public class Permission {
 	public String toString() {
 		return "Permission [id=" + id + ", name=" + name + ", permission="
 				+ permission + ", parentId=" + parentId + ", icon=" + icon
-				+ ", url=" + url + "]";
+				+ ", url=" + url + ", type=" + type + "]";
 	}
 }

@@ -1,0 +1,14 @@
+.prove.error input {
+  border: 1px #f00 solid;
+  background-color: #FBF9BB;
+}
+.prove .valid_message {
+  color: #32BC61;
+}
+.prove.error .valid_message {
+  color: #f00;
+}
+.prove.success input {
+  border: 1px solid #32BC61;
+}
+/*# sourceMappingURL=prove.css.map */

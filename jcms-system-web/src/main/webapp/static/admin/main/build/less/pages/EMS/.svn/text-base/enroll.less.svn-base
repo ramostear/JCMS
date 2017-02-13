@@ -1,0 +1,58 @@
+.max-high{
+    height:100%;
+}
+.bc{
+    background: black;
+}
+.bk{
+    border: 1px solid red;
+}
+.bord-bottom{
+    border: 1px solid #E7E7E7;
+}
+.login-nav {
+  padding: 8px 15px;
+  list-style: none;
+  margin-top: 25px;
+}
+.login-nav > li {
+  display: inline-block;
+}
+.login-nav > li + li:before {
+  padding: 0 10px;
+  color: #ccc;
+  content: "|";
+}
+.login-nav > li>a{
+    text-decoration: none;font-size: 13px; height: 40%;
+}
+.login-nav > li>a:visited{
+    color: #3C3F41;
+}
+#login-body{
+    padding: 20px;
+    margin-top:24%;
+}
+#submit{
+    margin-top: 30px; 
+    background-color:#00C0EF;
+    color: white;
+}
+#login-img{
+    margin-top:10%;
+}
+.prove.error input{
+    border: 1px #f00 solid;
+    background-color: #FBF9BB;
+}   
+.prove .valid_message {
+    color: #32BC61;
+    position: absolute;
+}
+            
+.prove.error .valid_message {
+    color: #f00;
+}
+.prove.success input{
+    border: 1px solid #32BC61;
+}

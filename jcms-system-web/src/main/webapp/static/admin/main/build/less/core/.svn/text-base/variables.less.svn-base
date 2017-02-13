@@ -1,0 +1,44 @@
+/*basic style*/
+@body-bg:                       #222D32;  //内联框架背景颜色
+@panel-top-border-color:        @color-primary;
+
+/*link*/
+@link-color:                    @color-primary;
+@link-hover-color:              darken(@color-secondary, 10%);
+
+/*link hover*/
+@link-block-hover:              @color-gray-pale;
+
+
+/*font style*/
+@font-family:                   'Open Sans', 'Helvetica Neue', Arial, 'Hiragino Sans GB', 
+                                'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
+@font-color:                    @color-gray-darker;
+@font-forbidden:                lighten(#000, 55%);
+
+/*comonent*/
+//sidebar style
+@sidebar-user-bg:               @color-gray-darker;
+@sidebar-link-color:            lighten(#1A2226, 70%);
+@sidebar-link-hover-color:      @color-gray-pale;
+@sidebar-link-hover-bg:         #1A2226;
+@sidebar-link-active-bg:        #1A2226;
+
+//navs
+@nav-link-padding:              8px 15px;
+@headings-font-weight:          bold;
+
+/*pages*/
+//index style
+@quick-nav-bg:                  #1A2226;
+@main-content-bg:               #ECF0F5;
+
+// ANIMATION
+// --------------------------
+@animation-speed-normal:        0.4s;
+@animation-speed-fast:          0.2s;
+@animation-speed-slow:          0.8s;
+@animation-type:                cubic-bezier(0.175,.885,.32,1);
+
+
+

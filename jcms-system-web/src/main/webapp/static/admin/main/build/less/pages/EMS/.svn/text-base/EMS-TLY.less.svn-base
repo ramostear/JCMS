@@ -1,0 +1,14 @@
+/*
+ * 导入核心样式
+ * ========
+ */
+@import "../../core/colorset.less";
+@import "../../core/variables.less";
+
+/*
+ * 导入页面样式文件
+ * ==========
+ */
+@import "enroll.less";          //报名表单填写界面
+
+

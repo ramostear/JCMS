@@ -1,0 +1,5 @@
+.food-span {
+    width: auto;
+    height: 20px;
+    background-color: #BAE8B6;
+}

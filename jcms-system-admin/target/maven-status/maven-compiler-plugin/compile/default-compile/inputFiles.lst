@@ -9,6 +9,7 @@ D:\abihu-workspace-2016\2016-10-01\jcms-parent-start\jcms-system-admin\src\main\
 D:\abihu-workspace-2016\2016-10-01\jcms-parent-start\jcms-system-admin\src\main\java\org\jcms\system\admin\dao\impl\ThemeDaoImpl.java
 D:\abihu-workspace-2016\2016-10-01\jcms-parent-start\jcms-system-admin\src\main\java\org\jcms\system\admin\dao\SiteDao.java
 D:\abihu-workspace-2016\2016-10-01\jcms-parent-start\jcms-system-admin\src\main\java\org\jcms\system\admin\dao\UserDao.java
+D:\abihu-workspace-2016\2016-10-01\jcms-parent-start\jcms-system-admin\src\main\java\org\jcms\system\admin\service\impl\PermissionServiceImpl.java
 D:\abihu-workspace-2016\2016-10-01\jcms-parent-start\jcms-system-admin\src\main\java\org\jcms\system\admin\dao\ArticleDao.java
 D:\abihu-workspace-2016\2016-10-01\jcms-parent-start\jcms-system-admin\src\main\java\org\jcms\system\admin\entity\Permission.java
 D:\abihu-workspace-2016\2016-10-01\jcms-parent-start\jcms-system-admin\src\main\java\org\jcms\system\admin\dao\PluginDao.java
@@ -22,6 +23,7 @@ D:\abihu-workspace-2016\2016-10-01\jcms-parent-start\jcms-system-admin\src\main\
 D:\abihu-workspace-2016\2016-10-01\jcms-parent-start\jcms-system-admin\src\main\java\org\jcms\system\admin\dao\ManagerDao.java
 D:\abihu-workspace-2016\2016-10-01\jcms-parent-start\jcms-system-admin\src\main\java\org\jcms\system\admin\entity\Article.java
 D:\abihu-workspace-2016\2016-10-01\jcms-parent-start\jcms-system-admin\src\main\java\org\jcms\system\admin\service\impl\ManagerServiceImpl.java
+D:\abihu-workspace-2016\2016-10-01\jcms-parent-start\jcms-system-admin\src\main\java\org\jcms\system\admin\service\PermissionService.java
 D:\abihu-workspace-2016\2016-10-01\jcms-parent-start\jcms-system-admin\src\main\java\org\jcms\system\admin\entity\Resources.java
 D:\abihu-workspace-2016\2016-10-01\jcms-parent-start\jcms-system-admin\src\main\java\org\jcms\system\admin\entity\User.java
 D:\abihu-workspace-2016\2016-10-01\jcms-parent-start\jcms-system-admin\src\main\java\org\jcms\system\admin\entity\Plugin.java
