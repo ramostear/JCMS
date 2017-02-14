@@ -43,12 +43,11 @@ public class Manager {
 	private String roleIds;
 	private String creator;		//创建者名字
 	private int creatorId;		//创建者编号
-	
+	private String salt;
 	/**
 	 * 
 	 */
 	public Manager() {
-		// TODO Auto-generated constructor stub
 	}
 	
 	/**
@@ -62,7 +61,7 @@ public class Manager {
 	 * @param creatorId
 	 */
 	public Manager(int id, String userName, String nickName, String password,
-			String createTime, String roleIds, String creator, int creatorId) {
+			String createTime, String roleIds, String creator, int creatorId,String salt) {
 		super();
 		this.id = id;
 		this.userName = userName;
@@ -72,6 +71,7 @@ public class Manager {
 		this.roleIds = roleIds;
 		this.creator = creator;
 		this.creatorId = creatorId;
+		this.salt = salt;
 	}
 
 
@@ -275,7 +275,19 @@ public class Manager {
 		this.creatorId = creatorId;
 	}
 	
+	/**
+	 * @param salt the salt to set
+	 */
+	public void setSalt(String salt) {
+		this.salt = salt;
+	}
 	
+	/**
+	 * @return the salt
+	 */
+	public String getSalt() {
+		return salt;
+	}
 	
 
 }

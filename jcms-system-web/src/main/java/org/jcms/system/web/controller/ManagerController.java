@@ -17,8 +17,13 @@
 package org.jcms.system.web.controller;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -26,7 +31,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.jcms.system.admin.entity.Manager;
+import org.jcms.system.admin.entity.Permission;
 import org.jcms.system.admin.service.ManagerService;
+import org.jcms.system.admin.service.PermissionService;
+import org.jcms.system.web.beans.MenuBean;
 import org.jcms.system.web.constants.SystemContant;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -44,12 +52,21 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class ManagerController extends BaseController{
 	
 	private ManagerService managerService;
+	private PermissionService permissionService;
 	/**
 	 * @param managerService the managerService to set
 	 */
 	@Resource
 	public void setManagerService(ManagerService managerService) {
 		this.managerService = managerService;
+	}
+	
+	/**
+	 * @param permissionService the permissionService to set
+	 */
+	@Resource
+	public void setPermissionService(PermissionService permissionService) {
+		this.permissionService = permissionService;
 	}
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -96,12 +113,46 @@ public class ManagerController extends BaseController{
 		this.writeToPage(response, size);
 	}
 	@RequestMapping("/main")
-	public String main(HttpServletRequest request,Model molde){
+	public String main(HttpServletRequest request,Model model){
 		HttpSession session = request.getSession(true);
 		Manager m = (Manager)session.getAttribute(SystemContant.LOGIN_MANAGER);
 		if(m==null){
 			return "redirect:/console/manager/signin";
 		}
+		Map<String, Object>KV = new HashMap<String, Object>();
+		KV.put("type", "menu");
+		List<Permission> ps = this.permissionService.menus(KV);
+		List<MenuBean> menus = new ArrayList<MenuBean>();
+		List<Permission> temp = new ArrayList<Permission>();
+		for(Permission p:ps){
+			if(p.isRoot()){
+				MenuBean menu = new MenuBean();
+				menu.setId(p.getId());
+				menu.setIcon(p.getIcon());
+				menu.setName(p.getName());
+				menu.setUrl(p.getUrl());
+				menus.add(menu);
+				temp.add(p);
+			}
+		}
+		for(Permission p:temp){
+			ps.remove(p);
+		}
+		for(MenuBean menu:menus){
+			Set<MenuBean> sMenu = new HashSet<MenuBean>();
+			for(Permission p:ps){
+				if(menu.getId()==p.getParentId()){
+					MenuBean subMenu = new MenuBean();
+					subMenu.setIcon(p.getIcon());
+					subMenu.setId(p.getId());
+					subMenu.setName(p.getName());
+					subMenu.setUrl(p.getUrl());
+					sMenu.add(subMenu);
+				}
+			}
+			menu.setSubMenu(sMenu);
+		}
+		session.setAttribute(SystemContant.MENUS, menus); 
 		return "index";
 	}
 

@@ -234,4 +234,11 @@ public class Permission {
 				+ permission + ", parentId=" + parentId + ", icon=" + icon
 				+ ", url=" + url + ", type=" + type + "]";
 	}
+	public Boolean isRoot(){
+		if(this.parentId==0){
+			return true;
+		}else{
+			return false;
+		}
+	}
 }

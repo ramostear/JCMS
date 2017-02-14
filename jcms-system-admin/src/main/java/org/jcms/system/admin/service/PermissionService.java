@@ -17,6 +17,7 @@
 package org.jcms.system.admin.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.jcms.system.admin.entity.Permission;
 
@@ -42,5 +43,7 @@ public interface PermissionService {
 	public long size(Integer parentId);
 	
 	public long size();
+	
+	public List<Permission> menus(Map<String, Object>KV);
 
 }

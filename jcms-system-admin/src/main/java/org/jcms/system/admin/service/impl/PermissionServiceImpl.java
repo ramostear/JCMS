@@ -114,4 +114,12 @@ public class PermissionServiceImpl implements PermissionService{
 		return this.permissionDao.size(null);
 	}
 
+	/* (non-Javadoc)
+	 * @see org.jcms.system.admin.service.PermissionService#menus(java.util.Map)
+	 */
+	@Override
+	public List<Permission> menus(Map<String, Object> KV) {
+		return this.permissionDao.listByKV(KV);
+	}
+
 }

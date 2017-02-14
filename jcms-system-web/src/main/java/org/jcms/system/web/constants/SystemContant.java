@@ -30,5 +30,7 @@ public class SystemContant {
 	 * 验证码
 	 */
 	public static final String VERIFY_CODE = "verCode";
+	
+	public static final String MENUS = "menus";
 
 }
