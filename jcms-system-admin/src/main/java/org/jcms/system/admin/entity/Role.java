@@ -42,6 +42,90 @@ public class Role {
 	private String permissionIds;
 	
 	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	/**
+	 * @return the roleName
+	 */
+	public String getRoleName() {
+		return roleName;
+	}
+
+	/**
+	 * @param roleName the roleName to set
+	 */
+	public void setRoleName(String roleName) {
+		this.roleName = roleName;
+	}
+
+	/**
+	 * @return the createTime
+	 */
+	public String getCreateTime() {
+		return createTime;
+	}
+
+	/**
+	 * @param createTime the createTime to set
+	 */
+	public void setCreateTime(String createTime) {
+		this.createTime = createTime;
+	}
+
+	/**
+	 * @return the creator
+	 */
+	public String getCreator() {
+		return creator;
+	}
+
+	/**
+	 * @param creator the creator to set
+	 */
+	public void setCreator(String creator) {
+		this.creator = creator;
+	}
+
+	/**
+	 * @return the createId
+	 */
+	public int getCreateId() {
+		return createId;
+	}
+
+	/**
+	 * @param createId the createId to set
+	 */
+	public void setCreateId(int createId) {
+		this.createId = createId;
+	}
+
+	/**
+	 * @return the permissionIds
+	 */
+	public String getPermissionIds() {
+		return permissionIds;
+	}
+
+	/**
+	 * @param permissionIds the permissionIds to set
+	 */
+	public void setPermissionIds(String permissionIds) {
+		this.permissionIds = permissionIds;
+	}
+
+	/**
 	 * 
 	 */
 	public Role() {
