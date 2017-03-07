@@ -81,52 +81,52 @@
 				</div>
 				<div class="auto-height main-content" id="pull-html" style="overflow-y:auto;">
 					<div style="padding-top: 15px; padding-bottom: 15px;">
-						<h1 style="display: inline;">权限配置中心</h1>
+						<h1 style="display: inline;">角色管理</h1>
 						<h4 style="display: inline; color: #808080; margin-right: 15px;" class="pull-right">
 							<a href="#">主页</a>
 							/
-							系统配置
+							角色管理
 						</h4>
 					</div>
-					<div class="col-lg-3 col-md-3 col-sm-3" style="min-width: 200px;">
-						<div class="panel panel-yellow">
-							<div class="my-panel-head">
-								<span id="menuInfo" class="label label-primary" style="color:#fff"></span>
-								<span>系统资源</span>
-								<a href="#" class="pull-right" data-panel-toggle="#org-panel-body"><i class="icon icon-minus"></i></a>
-							</div>
-							<div class="panel-body" id="org-panel-body" style="height:610px;overflow-y:auto">
-								<ul id="permission-tree" class="ztree" style="width: 100%; min-width: 200px;"></ul>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-9 col-md-9 col-sm-9">
+					<div class="col-lg-12 col-md-12 col-sm-12">
 						<div class="panel" style="border-top-color: #38b03f;">
 							<div class="my-panel-head">
-								<span>资源详细信息</span>
+								<span>角色详细信息列表</span>
 								<a href="#" class="pull-right" data-panel-toggle="#people-panel-body"><i class="icon icon-minus"></i></a>
 							</div>
 							<div class="panel-body table-responsive" id="people-panel-body">
-								<div class="button-box">
-									<button class="btn btn-primary" type="button" data-toggle="modal" data-target="#add-resource">
-										<i class="icon icon-plus"></i>&nbsp;添加资源
-									</button>
-									<button class="btn btn-danger" type="button" data-toggle="modal" data-target="#remove-teacher">
+								<div class="button-box" style="margin-bottom: 5px;">
+									<a class="btn btn-primary" type="button" href="<%=path %>/admin/role/create" target="_self">
+									 	<i class="icon icon-plus"></i>&nbsp;${op}
+									</a>
+									<a class="btn btn-danger" type="button">
 										<i class="icon icon-trash"></i>&nbsp;删除
-									</button>
+									</a>
 								</div><!-- 按钮容器结束-->
 								<table class="table datatable table-hover table-condensed" id="permission">
 									<thead>
 										<tr>
-											<th data-type="string">名称</th>
-											<th data-type="string">图标</th>
-											<th data-type="string">URL</th>
-											<th data-type="string">权限</th>
-											<th data-type="string">类型</th>
+											<th data-type="string">角色名称</th>
+											<th data-type="string">描述信息</th>
+											<th data-type="string">创建者</th>
+											<th data-type="string">创建时间</th>
 											<th data-type="string">操作</th>
 										</tr>
 									</thead>
 									<tbody id="perdata">
+										<c:forEach items="${list }" var="role">
+											<tr>
+												<td>${role.roleName }</td>
+												<td>${role.description }</td>
+												<td>${role.creator }</td>
+												<td>${role.createTime }</td>
+												<td>
+													<a href="<%=path %>/admin/role/edit/${role.id}">编辑</a>
+													<a href="<%=path %>/admin/role/${role.id}">查看</a>
+													<a href='javascript:void(0);' onclick="deleteRole(${role.id})">删除</a>
+												</td>
+											</tr>
+										</c:forEach>
 									</tbody>
 								</table>
 								<div id="page" style="margin-top:5px;text-align: right;"></div>
@@ -245,10 +245,10 @@
 					      	<h4 class="modal-title">警告</h4>
 					    </div>
 					    <div class="modal-body" id="del_msg">
-					    	<p>是否删除XXX部门？</p>
+					    	<p>确认删除该角色吗？该操作不可逆！</p>
 					    </div>
 					    <div class="modal-footer">
-					      	<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+					      	<button type="button" class="btn btn-default delroleBtn" data-dismiss="modal">取消</button>
 					      	<button type="button" class="btn btn-danger" id="del_ok">确认</button>
 					    </div>
 			  		</div>
@@ -262,6 +262,6 @@
 		<script src="<%=path %>/static/admin/main/build/js/AdminTLY.js" type="text/javascript" charset="utf-8"></script>
 		<script src="<%=path %>/static/admin/main/plugins/ztree/jquery.ztree.all.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="<%=path %>/static/admin/main/laypage-v1.3/laypage/laypage.js" type="text/javascript" charset="utf-8"></script>
-		<script src="<%=path %>/static/admin/main/default/org.jcms.permission.js"type="text/javascript"></script>
+		<script src="<%=path %>/static/admin/main/default/org.jcms.role.js"type="text/javascript"></script>
 	</body>
 </html>

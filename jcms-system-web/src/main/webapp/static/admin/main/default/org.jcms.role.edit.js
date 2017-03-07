@@ -1,19 +1,19 @@
 $(document).ready(function() {
 	var info = $("#subBtn").text();
-	if (info == "添加角色") {
+	if (info == "创建角色") {
 		loadResourceTree();
-	} else if (info == "更新角色") {
-		loadResourceTrees($("#resId").val());
+	} else if (info == "编辑角色") {
+		loadResourceTrees($("#roleId").val());
 	}
 });
 function loadResourceTree() {
 	var setting = {
 		async : {
-			autoParam : [ "id", "name", "pid", "checked" ],
+			autoParam : [ "id", "name", "parentId", "checked" ],
 			contentType : 'application/json;charset=utf-8',
 			enable : true,
 			type : 'GET',
-			url : $(".path").val() + "/role/view_resource",
+			url : $(".path").val() + "/admin/role/getPermissions",
 		},
 		callback : {
 			onAsyncSuccess : function() {
@@ -40,20 +40,20 @@ function loadResourceTree() {
 			simpleData : {
 				enable : true,
 				idKey : "id",
-				pIdKey : "pid"
+				pIdKey : "parentId"
 			}
 		}
 	};
-	var resourceTree = $.fn.zTree.init($("#resourceTree"), setting, []);
+	var resourceTree = $.fn.zTree.init($("#permissionTree"), setting, []);
 }
 function loadResourceTrees(id) {
 	var setting = {
 		async : {
-			autoParam : [ "id", "name", "pid", "checked" ],
+			autoParam : [ "id", "name", "parentId", "checked" ],
 			contentType : 'application/json;charset=utf-8',
 			enable : true,
 			type : 'GET',
-			url : $(".path").val() + "/role/view_role_update_resources",
+			url : $(".path").val() + "/admin/role/getRolePermissionTree",
 			otherParam : {
 				id : id
 			}
@@ -83,19 +83,19 @@ function loadResourceTrees(id) {
 			simpleData : {
 				enable : true,
 				idKey : "id",
-				pIdKey : "pid"
+				pIdKey : "parentId"
 			}
 		}
 	};
-	var resourceTree = $.fn.zTree.init($("#resourceTree"), setting, []);
+	var resourceTree = $.fn.zTree.init($("#permissionTree"), setting, []);
 }
 function beforeClick(treeId, treeNode) {
-	var zTree = $.fn.zTree.getZTreeObj("resourceTree");
+	var zTree = $.fn.zTree.getZTreeObj("permissionTree");
 	zTree.checkNode(treeNode, !treeNode.checked, null, true);
 	return false;
 }
 function onCheck(e, treeId, treeNode) {
-	var zTree = $.fn.zTree.getZTreeObj("resourceTree");
+	var zTree = $.fn.zTree.getZTreeObj("permissionTree");
 	nodes = zTree.getCheckedNodes(true);
 	v = "";
 	for (var i = 0, l = nodes.length; i < l; i++) {
@@ -115,7 +115,7 @@ function showResource() {
 		top : resOffset.top + resObj.outerHeight() + "px"
 	}).slideDown("fast");
 	$("body").bind("mousedown", onBodyDown);
-	var zTree = $.fn.zTree.getZTreeObj("resourceTree");
+	var zTree = $.fn.zTree.getZTreeObj("permissionTree");
 	nodes = zTree.getCheckedNodes(true);
 	v = "";
 	for (var i = 0, l = nodes.length; i < l; i++) {
@@ -140,34 +140,35 @@ function onBodyDown(event) {
 }
 $("#subBtn").click(function() {
 	var info = $(this).text();
-	if (info == "添加角色") {
+	if (info == "创建角色") {
 		addRole(function(result) {
 			new $.zui.Messager(result.msg, {
 				type : 'success',
 				placement : 'center'
 			}).show();
 			setTimeout(function() {
-				window.location = $(".path").val() + "/role/";
+				window.location = $(".path").val() + "/admin/role/";
 			}, 1000);
 		});
-	} else if (info == "更新角色") {
+	} else if (info == "编辑角色") {
 		updateRole(function(result) {
 			new $.zui.Messager(result.msg, {
 				type : 'success',
 				placement : 'center'
 			}).show();
 			setTimeout(function() {
-				window.location = $(".path").val() + "/role/";
+				window.location = $(".path").val() + "/admin/role/";
 			}, 1000);
 		});
 	}
 });
 
 function addRole(callback) {
-	var role = $("#role").val();
-	var description = $("#description").val();
-	var resourceId = $("#resourceId").val();
-	if (role == "" || description == "" || resourceId == "") {
+	var role = {};
+	role.roleName = $("#role").val();
+	role.description = $("#description").val();
+	role.perm = $("#resourceId").val();
+	if (role.roleName == "" || role.description == "" || role.perm == "") {
 		new $.zui.Messager("提交的数据不完整!", {
 			type : 'danger',
 			placement : 'center'
@@ -176,12 +177,12 @@ function addRole(callback) {
 	} else {
 		$.ajax({
 			type : 'POST',
-			url : $(".path").val() + "/role/create",
+			url : $(".path").val() + "/admin/role/create",
 			async : false,
 			data : {
-				role : role,
-				description : description,
-				resourceIdsStr : resourceId
+				roleName : role.roleName,
+				description : role.description,
+				perm : role.perm
 			},
 			success : function(result) {
 				result = $.parseJSON(result);
@@ -194,10 +195,12 @@ function addRole(callback) {
 }
 
 function updateRole(callback) {
-	var role = $("#role").val();
-	var description = $("#description").val();
-	var resourceId = $("#resourceId").val();
-	if (role == "" || description == "" || resourceId == "") {
+	var role = {};
+	role.id = $("#roleId").val();
+	role.roleName = $("#role").val();
+	role.description = $("#description").val();
+	role.perm = $("#resourceId").val();
+	if (role.roleName == "" || role.description == "" || role.perm== "") {
 		new $.zui.Messager("提交的数据不完整!", {
 			type : 'danger',
 			placement : 'center'
@@ -206,13 +209,12 @@ function updateRole(callback) {
 	} else {
 		$.ajax({
 			type : 'POST',
-			url : $(".path").val() + "/role/update",
+			url : $(".path").val() + "/admin/role/edit/"+role.id,
 			async : false,
 			data : {
-				id : $("#roleId").val(),
-				role : role,
-				description : description,
-				resourceIdsStr : resourceId
+				roleName : role.roleName,
+				description : role.description,
+				perm : role.perm
 			},
 			success : function(result) {
 				result = $.parseJSON(result);

@@ -80,7 +80,7 @@ public class RoleServiceImpl implements RoleService {
 	 */
 	@Override
 	public boolean deleteRoleById(Integer id) {
-		Role role = new Role(id, null, null, null, 0, null);
+		Role role = new Role(id, null, null, null, 0, null,null);
 		return this.deleteRole(role);
 	}
 

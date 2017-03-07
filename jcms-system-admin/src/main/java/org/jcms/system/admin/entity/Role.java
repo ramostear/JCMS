@@ -40,6 +40,7 @@ public class Role {
 	private String creator;
 	private int createId;
 	private String permissionIds;
+	private String description;
 	
 	/**
 	 * @return the id
@@ -141,7 +142,7 @@ public class Role {
 	 * @param permissionIds
 	 */
 	public Role(int id, String roleName, String createTime, String creator,
-			int createId, String permissionIds) {
+			int createId, String permissionIds,String description) {
 		super();
 		this.id = id;
 		this.roleName = roleName;
@@ -149,6 +150,7 @@ public class Role {
 		this.creator = creator;
 		this.createId = createId;
 		this.permissionIds = permissionIds;
+		this.description = description;
 	}
 
 	/* (non-Javadoc)
@@ -236,6 +238,20 @@ public class Role {
 			perIds.add(Integer.parseInt(id));
 		}
 		return perIds;
+	}
+	
+	/**
+	 * @param description the description to set
+	 */
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	/**
+	 * @return the description
+	 */
+	public String getDescription() {
+		return description;
 	}
 
 }
