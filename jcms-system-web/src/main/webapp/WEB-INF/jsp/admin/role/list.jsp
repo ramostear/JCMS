@@ -11,6 +11,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge, Chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>桃李云 | 管理员控制台</title>
+		<link rel="shortcut icon" href="<%=path %>/static/ramostear.ico"/>
 		<!-- ZUI样式文件 -->
 		<link rel="stylesheet" type="text/css" href="<%=path %>/static/admin/main/zui/css/zui.css" />
 		<!-- 数据表格样式文件 -->
@@ -55,24 +56,7 @@
 							</div>
 						</form>
 					</div>
-					<ul id="side-menu" class="side-menu">
-						<c:forEach var="menu" items="${menus}">
-							<li>
-							<a class="link">
-								<i class="icon icon-dashboard" style="margin-top: -3px;"></i>
-								<span class="ul-header">${menu.name}</span>
-								<i class="icon icon-chevron-left" style="margin-top: -2px;"></i>
-							</a>
-							<c:if test="${!empty menu.subMenu }">
-								<ul class="submenu">
-									<c:forEach var="subMenu" items="${menu.subMenu }">
-										<li><a href="<%=path %>${subMenu.url }"><span class="icon icon-circle-blank">&nbsp;&nbsp;${subMenu.name }</span></a></li>
-									</c:forEach>
-								</ul>
-							</c:if>
-						</li>
-						</c:forEach>
-					</ul>
+					<jsp:include page="/common/menu.jsp"></jsp:include>
 				</div>
 			</div>
 			<!-- 右侧内容 -->
