@@ -32,5 +32,7 @@ public class SystemContant {
 	public static final String VERIFY_CODE = "verCode";
 	
 	public static final String MENUS = "menus";
+	
+	public static final String DEFAULT_PDW = "123456";
 
 }

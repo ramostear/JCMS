@@ -241,13 +241,15 @@ public class Manager {
 		this.roleIds = rIds;
 	}
 	
-	public Set<Integer> getIntRoleIds(){
-		Set<Integer> roleIds = new HashSet<Integer>();
-		String[] rIds = this.roleIds.split(",");
-		for(String id:rIds){
-			roleIds.add(Integer.parseInt(id));
+	public Set<Integer> RoleIdsAsSet(){
+		Set<Integer> rIds1 = new HashSet<Integer>();
+		if(this.roleIds!=null){
+			String[] rIds = this.roleIds.split(",");
+			for(String id:rIds){
+				rIds1.add(Integer.parseInt(id));
+			}
 		}
-		return roleIds;
+		return rIds1;
 	}
 	
 	/**

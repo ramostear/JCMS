@@ -32,12 +32,15 @@ import javax.servlet.http.HttpSession;
 
 import org.jcms.system.admin.entity.Manager;
 import org.jcms.system.admin.entity.Permission;
+import org.jcms.system.admin.entity.Role;
 import org.jcms.system.admin.service.ManagerService;
 import org.jcms.system.admin.service.PermissionService;
+import org.jcms.system.admin.service.RoleService;
 import org.jcms.system.web.beans.MenuBean;
 import org.jcms.system.web.constants.SystemContant;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -53,6 +56,7 @@ public class ManagerController extends BaseController{
 	
 	private ManagerService managerService;
 	private PermissionService permissionService;
+	private RoleService roleService;
 	/**
 	 * @param managerService the managerService to set
 	 */
@@ -69,9 +73,17 @@ public class ManagerController extends BaseController{
 		this.permissionService = permissionService;
 	}
 	
+	/**
+	 * @param roleService the roleService to set
+	 */
+	@Resource
+	public void setRoleService(RoleService roleService) {
+		this.roleService = roleService;
+	}
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index(Model model) {
-		model.addAttribute("op", "添加管理员");
+		model.addAttribute("op", "创建管理员");
 		return "admin/manager/list";
 	}
 
@@ -81,36 +93,76 @@ public class ManagerController extends BaseController{
 			@RequestParam(value = "pageSize", defaultValue = "15") int pageSize,
 			HttpServletResponse response) {
 		List<Manager> list = this.managerService.pageList((page-1)*pageSize, pageSize);
+		System.out.println(pageSize+"===="+list.size());
 		this.writeToPage(response, list);
 	}
-	@RequestMapping(value="/save",method=RequestMethod.GET)
+	@RequestMapping(value="/create",method=RequestMethod.GET)
 	public String saveManager(Model model){
-		model.addAttribute("op", "添加管理员");
+		List<Role> rlist = this.roleService.findAll();
+		model.addAttribute("op", "创建管理员").addAttribute("roles", rlist).addAttribute("manager", new Manager());
 		return "admin/manager/edit";
 	}
-	@RequestMapping(value="/save",method=RequestMethod.POST)
+	@RequestMapping(value="/create",method=RequestMethod.POST)
 	public void saveManager(@RequestParam(value="userName")String userName,
 			@RequestParam(value="nickName")String nickName,
-			@RequestParam(value="password")String password,
 			@RequestParam(value="roleIds")String roleIds,
 			HttpServletRequest request,HttpServletResponse response){
 		HttpSession session = request.getSession();
 		Manager currm = (Manager)session.getAttribute(SystemContant.LOGIN_MANAGER);
 		Manager m = new Manager();
-		m.setCreateTime(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+		m.setCreateTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
 		m.setCreator(currm.getNickName());
 		m.setCreatorId(currm.getId());
 		m.setNickName(nickName);
-		m.setPassword(password);
+		m.setPassword(SystemContant.DEFAULT_PDW);
 		m.setRoleIds(roleIds);
 		m.setUserName(userName);
 		this.managerService.saveManager(m);
 		this.writeToPage(response, "{\"status\":\"success\",\"msg\":\""+m.getNickName()+"创建成功！\"}");
 	}
+	@RequestMapping(value="/edit/{id}",method=RequestMethod.GET)
+	public String editManager(@PathVariable(value="id")int id,Model model){
+		Manager m = this.managerService.findById(id);
+		List<Role> roles = this.roleService.findAll();
+		model.addAttribute("op", "编辑管理员").addAttribute("manager", m).addAttribute("roles", roles);
+		return "admin/manager/edit";
+	}
+	
+	@RequestMapping(value="/edit/{id}",method=RequestMethod.POST)
+	public void editManager(@PathVariable(value="id")int id,
+			@RequestParam(value="nickName")String nickName,
+			@RequestParam(value="roleIds")String roleIds,
+			HttpServletResponse response){
+		Manager m = this.managerService.findById(id);
+		m.setRoleIds(roleIds);
+		if(!m.getNickName().equals(nickName)){m.setNickName(nickName);}
+		this.managerService.updateManager(m);
+		this.writeToPage(response, "{\"status\":\"success\",\"msg\":\""+m.getNickName()+"编辑成功！\"}");
+	}
+	@RequestMapping(value="/{id}",method=RequestMethod.GET)
+	public String showManager(@PathVariable(value="id")int id,Model model){
+		Manager m = this.managerService.findById(id);
+		Set<Integer> rids = m.RoleIdsAsSet();
+		List<Role> rs = new ArrayList<Role>();
+		for(int rid:rids){
+			Role r = this.roleService.findOne(rid);
+			rs.add(r);
+		}
+		model.addAttribute("manager", m).addAttribute("roles", rs).addAttribute("op", "管理员信息");
+		return "admin/manager/info";
+	}
+	@RequestMapping(value="/delete/{id}",method=RequestMethod.POST)
+	public void deleteManager(@PathVariable(value="id")int id,HttpServletResponse response){
+		Manager m = this.managerService.findById(id);
+		if(m!=null){
+			this.managerService.deleteManager(m);
+		}
+		this.writeToPage(response, "{\"status\":\"success\",\"msg\":\"删除成功\"}");
+	}
 	@RequestMapping(value="/size",method=RequestMethod.GET)
 	public void size(HttpServletResponse response){
 		long size = this.managerService.size();
-		this.writeToPage(response, size);
+		this.writeToPage(response, "{\"size\":\""+size+"\"}");
 	}
 	@RequestMapping("/main")
 	public String main(HttpServletRequest request,Model model){

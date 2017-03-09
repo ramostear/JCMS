@@ -108,7 +108,7 @@ public class ManagerServiceImpl implements ManagerService{
 	 */
 	@Override
 	public List<Manager> pageList(int start, int limit) {
-		return this.managerDao.pageListByKV(start, limit, null);
+		return this.managerDao.pageListByKV(start, limit, new HashMap<String, Object>());
 	}
 
 	/* (non-Javadoc)
@@ -116,7 +116,7 @@ public class ManagerServiceImpl implements ManagerService{
 	 */
 	@Override
 	public long size() {
-		return this.managerDao.size(null);
+		return this.managerDao.size(new HashMap<String, Object>());
 	}
 
 }
