@@ -37,6 +37,8 @@ public class ManagerServiceImpl implements ManagerService{
 	
 	private ManagerDao managerDao;
 	
+	private PasswordHelper passwordHelper;
+	
 	/**
 	 * @param managerDao the managerDao to set
 	 */
@@ -45,13 +47,22 @@ public class ManagerServiceImpl implements ManagerService{
 		this.managerDao = managerDao;
 	}
 	
+	/**
+	 * @param passwordHelper the passwordHelper to set
+	 */
+	@Resource
+	public void setPasswordHelper(PasswordHelper passwordHelper) {
+		this.passwordHelper = passwordHelper;
+	}
 
 	/* (non-Javadoc)
 	 * @see org.jcms.system.admin.service.ManagerService#saveManager(org.jcms.system.admin.entity.Manager)
 	 */
 	@Override
 	public Manager saveManager(Manager manager) {
+		passwordHelper.encryptPassword(manager);
 		this.managerDao.save(manager);
+		System.out.println("username:"+manager.getUserName()+",password:"+manager.getPassword()+",salt:"+manager.getSalt());
 		return manager;
 	}
 

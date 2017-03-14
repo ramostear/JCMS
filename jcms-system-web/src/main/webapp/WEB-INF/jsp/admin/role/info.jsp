@@ -51,7 +51,7 @@
 				<div class="side-user">
 					<img id="head" class="img-circle"
 						src="<%=path %>/static/admin/main/img/test-big/test_xiaoercun.jpg" alt="head" />
-					<span class="user-name">黄大蒜<a href="#"><i
+					<span class="user-name">谭朝红<a href="#"><i
 							class="label label-success">在线</i></a></span>
 					<form action="#" method="get">
 						<div class="input-group search-group">

@@ -71,5 +71,10 @@
 			<artifactId>spring-context-support</artifactId>
 			<version>${springframework.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-core</artifactId>
+			<version>${shiro.version}</version>
+		</dependency>
 	</dependencies>
 </project>

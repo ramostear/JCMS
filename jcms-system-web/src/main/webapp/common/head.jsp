@@ -26,80 +26,29 @@
 							<ul class="dropdown-menu dropdown-menu-big" role="menu" aria-labelledby="dropdownMenu1">
 								<ul style="margin-right: -50px;">
 									<ul class="col-xs-2">
-										<li class="header">校园OA</li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
-										<li class="divider"></li>
-										<li class="header">学生管理</li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
-									</ul>
-									<ul class="col-xs-2">
-										<li class="header">教务管理</li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
-										<li class="divider"></li>
-										<li class="header">XX管理</li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
-									</ul>
-									<ul class="col-xs-2">
-										<li class="header">后勤系统</li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
-										<li class="divider"></li>
-										<li class="header">视频监控</li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
-									</ul>
-									<ul class="col-xs-2">
 										<li class="header">系统管理</li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
-										<li class="divider"></li>
-										<li class="header">排课选课</li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
+										<li><a href="#"><i class="icon icon-cubes"></i>权限管理</a></li>
+										<li><a href="#"><i class="icon icon-cubes"></i>角色管理</a></li>
 									</ul>
 									<ul class="col-xs-2">
-										<li class="header">CMS校园门户</li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
-										<li class="divider"></li>
-										<li class="header">智慧校园</li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
+										<li class="header">插件管理</li>
+										<li><a href="#"><i class="icon icon-cubes"></i>新增插件</a></li>
+										<li><a href="#"><i class="icon icon-cubes"></i>管理插件</a></li>
 									</ul>
 									<ul class="col-xs-2">
-										<li class="header">测试用例</li>
-										<li><a href="#"><i class="icon icon-cubes"></i>测试用例01</a></li>
-										<li><a href="#"><i class="icon icon-cubes"></i>测试用例02</a></li>
-										<li><a href="#"><i class="icon icon-cubes"></i>测试用例03</a></li>
-										<li class="divider"></li>
-										<li class="header">数据分析</li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
-										<li><a href="#"><i class="icon icon-cubes"></i>下拉菜单项</a></li>
+										<li class="header">文章管理</li>
+										<li><a href="#"><i class="icon icon-cubes"></i>栏目设置</a></li>
+										<li><a href="#"><i class="icon icon-cubes"></i>新增文章</a></li>
+									</ul>
+									<ul class="col-xs-2">
+										<li class="header">个人中心</li>
+										<li><a href="#"><i class="icon icon-cubes"></i>个人信息</a></li>
+										<li><a href="#"><i class="icon icon-cubes"></i>修改密码</a></li>
+									</ul>
+									<ul class="col-xs-2">
+										<li class="header">系统备份</li>
+										<li><a href="#"><i class="icon icon-cubes"></i>备份数据</a></li>
+										<li><a href="#"><i class="icon icon-cubes"></i>恢复数据</a></li>
 									</ul>
 								</ul>
 							</ul>
@@ -130,7 +79,7 @@
 						</li>
 						<li><a href="your/nice/url">帮助与文档</a></li>
 						<li class="dropdown">
-							<a href="your/nice/url" class="dropdown-toggle" data-toggle="dropdown">Himiko&nbsp;<b class="caret"></b></a>
+							<a href="your/nice/url" class="dropdown-toggle" data-toggle="dropdown">Admin&nbsp;<b class="caret"></b></a>
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="your/nice/url"><i class="icon icon-user"></i>&nbsp;&nbsp;基本信息</a></li>
 								<li><a href="your/nice/url"><i class="icon icon-lock"></i>&nbsp;&nbsp;修改密码</a></li>

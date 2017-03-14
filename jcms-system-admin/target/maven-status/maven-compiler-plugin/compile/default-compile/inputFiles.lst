@@ -29,6 +29,7 @@ D:\abihu-workspace-2016\2016-10-01\jcms-parent-start\jcms-system-admin\src\main\
 D:\abihu-workspace-2016\2016-10-01\jcms-parent-start\jcms-system-admin\src\main\java\org\jcms\system\admin\entity\Resources.java
 D:\abihu-workspace-2016\2016-10-01\jcms-parent-start\jcms-system-admin\src\main\java\org\jcms\system\admin\entity\User.java
 D:\abihu-workspace-2016\2016-10-01\jcms-parent-start\jcms-system-admin\src\main\java\org\jcms\system\admin\entity\Plugin.java
+D:\abihu-workspace-2016\2016-10-01\jcms-parent-start\jcms-system-admin\src\main\java\org\jcms\system\admin\service\impl\PasswordHelper.java
 D:\abihu-workspace-2016\2016-10-01\jcms-parent-start\jcms-system-admin\src\main\java\org\jcms\system\admin\entity\Manager.java
 D:\abihu-workspace-2016\2016-10-01\jcms-parent-start\jcms-system-admin\src\main\java\org\jcms\system\admin\dao\impl\PermissionDaoImpl.java
 D:\abihu-workspace-2016\2016-10-01\jcms-parent-start\jcms-system-admin\src\main\java\org\jcms\system\admin\dao\impl\RoleDaoImpl.java

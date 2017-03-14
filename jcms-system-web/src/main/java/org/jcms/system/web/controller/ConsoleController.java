@@ -21,6 +21,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.IncorrectCredentialsException;
+import org.apache.shiro.authc.UnknownAccountException;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.crypto.UnknownAlgorithmException;
+import org.apache.shiro.subject.Subject;
 import org.jcms.system.admin.entity.Manager;
 import org.jcms.system.admin.service.ManagerService;
 import org.jcms.system.web.constants.SystemContant;
@@ -55,27 +62,35 @@ public class ConsoleController extends BaseController{
 		return "login";
 	}
 	@RequestMapping(value="/signin",method=RequestMethod.POST)
-	public String login(@RequestParam(value="userName")String userName,
-			@RequestParam(value="password")String password,
-			@RequestParam(value="verifyCode")String verifyCode,
-			Model model,HttpServletRequest request){
+	public String login(@RequestParam(value="userName")String userName,@RequestParam(value="password")String password,
+			@RequestParam(value="verifyCode")String verifyCode,Model model,HttpServletRequest request){
 		System.out.println(userName+"=="+password+"==="+verifyCode);
 		HttpSession session = request.getSession(true);
 		String code1 = (String)session.getAttribute(SystemContant.VERIFY_CODE);
+		String error = null;
+		Subject subject = SecurityUtils.getSubject();
+		UsernamePasswordToken token = new UsernamePasswordToken(userName, password);
 		if(!code1.equals(verifyCode)){
 			model.addAttribute("error", "验证码不正确");
 			model.addAttribute("userName", userName);
 			model.addAttribute("password", password);
 			return "login";
 		}else{
-			Manager m = this.managerService.findByName(userName);
-			if(m!=null){
-				session.setAttribute(SystemContant.LOGIN_MANAGER, m);
-				return "redirect:/admin/manager/main";
-			}else{
-				model.addAttribute("error", "用户名或密码不正确");
-				return "login";
-			}
+				try {
+					subject.login(token);
+				} catch (UnknownAccountException e) {
+					error = "用户名/密码错误";
+				}catch (IncorrectCredentialsException e) {
+					error = "用户名/密码错误";
+				}catch (AuthenticationException e) {
+					error = "数据不合法/其他错误";
+				}
+				if(error!=null){
+					model.addAttribute("error", error).addAttribute("userName", userName).addAttribute("password", password);
+					return "login";
+				}else{
+					return "redirect:/admin/manager/main";
+				}
 		}
 	}
 	@RequestMapping(value="/check",method=RequestMethod.GET)
@@ -95,5 +110,4 @@ public class ConsoleController extends BaseController{
 		session.removeAttribute(SystemContant.LOGIN_MANAGER);
 		return "redirect:/console/manager/signin";
 	}
-
 }

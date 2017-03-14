@@ -1,0 +1,27 @@
+[jcms-platform 2017-03-14 18:13:36,345](INFO) - org.hibernate.tool.hbm2ddl.TableMetadata - (TableMetadata.java:69) HHH000108: Foreign keys: [] 
+[jcms-platform 2017-03-14 18:13:36,347](INFO) - org.hibernate.tool.hbm2ddl.TableMetadata - (TableMetadata.java:70) HHH000126: Indexes: [primary] 
+[jcms-platform 2017-03-14 18:13:36,407](INFO) - org.hibernate.tool.hbm2ddl.TableMetadata - (TableMetadata.java:66) HHH000261: Table found: db_jcms.t_plugin 
+[jcms-platform 2017-03-14 18:13:36,408](INFO) - org.hibernate.tool.hbm2ddl.TableMetadata - (TableMetadata.java:67) HHH000037: Columns: [createtime, name, id, script, status] 
+[jcms-platform 2017-03-14 18:13:36,409](INFO) - org.hibernate.tool.hbm2ddl.TableMetadata - (TableMetadata.java:69) HHH000108: Foreign keys: [] 
+[jcms-platform 2017-03-14 18:13:36,410](INFO) - org.hibernate.tool.hbm2ddl.TableMetadata - (TableMetadata.java:70) HHH000126: Indexes: [primary] 
+[jcms-platform 2017-03-14 18:13:36,431](INFO) - org.hibernate.tool.hbm2ddl.TableMetadata - (TableMetadata.java:66) HHH000261: Table found: db_jcms.t_resources 
+[jcms-platform 2017-03-14 18:13:36,433](INFO) - org.hibernate.tool.hbm2ddl.TableMetadata - (TableMetadata.java:67) HHH000037: Columns: [oldname, createtime, author, name, id, authorid, url] 
+[jcms-platform 2017-03-14 18:13:36,434](INFO) - org.hibernate.tool.hbm2ddl.TableMetadata - (TableMetadata.java:69) HHH000108: Foreign keys: [] 
+[jcms-platform 2017-03-14 18:13:36,435](INFO) - org.hibernate.tool.hbm2ddl.TableMetadata - (TableMetadata.java:70) HHH000126: Indexes: [primary] 
+[jcms-platform 2017-03-14 18:13:36,512](INFO) - org.hibernate.tool.hbm2ddl.TableMetadata - (TableMetadata.java:66) HHH000261: Table found: db_jcms.t_role 
+[jcms-platform 2017-03-14 18:13:36,513](INFO) - org.hibernate.tool.hbm2ddl.TableMetadata - (TableMetadata.java:67) HHH000037: Columns: [createtime, creator, createid, rolename, description, id, permissionids] 
+[jcms-platform 2017-03-14 18:13:36,514](INFO) - org.hibernate.tool.hbm2ddl.TableMetadata - (TableMetadata.java:69) HHH000108: Foreign keys: [] 
+[jcms-platform 2017-03-14 18:13:36,517](INFO) - org.hibernate.tool.hbm2ddl.TableMetadata - (TableMetadata.java:70) HHH000126: Indexes: [primary] 
+[jcms-platform 2017-03-14 18:13:36,546](INFO) - org.hibernate.tool.hbm2ddl.TableMetadata - (TableMetadata.java:66) HHH000261: Table found: db_jcms.t_site 
+[jcms-platform 2017-03-14 18:13:36,547](INFO) - org.hibernate.tool.hbm2ddl.TableMetadata - (TableMetadata.java:67) HHH000037: Columns: [dbport, copyright, address, description, dbname, dbpassword, dbusername, name, logo, tel, id, keyword, email] 
+[jcms-platform 2017-03-14 18:13:36,548](INFO) - org.hibernate.tool.hbm2ddl.TableMetadata - (TableMetadata.java:69) HHH000108: Foreign keys: [] 
+[jcms-platform 2017-03-14 18:13:36,554](INFO) - org.hibernate.tool.hbm2ddl.TableMetadata - (TableMetadata.java:70) HHH000126: Indexes: [primary] 
+[jcms-platform 2017-03-14 18:13:36,577](INFO) - org.hibernate.tool.hbm2ddl.TableMetadata - (TableMetadata.java:66) HHH000261: Table found: db_jcms.t_theme 
+[jcms-platform 2017-03-14 18:13:36,579](INFO) - org.hibernate.tool.hbm2ddl.TableMetadata - (TableMetadata.java:67) HHH000037: Columns: [createtime, author, name, id, authorid, url] 
+[jcms-platform 2017-03-14 18:13:36,580](INFO) - org.hibernate.tool.hbm2ddl.TableMetadata - (TableMetadata.java:69) HHH000108: Foreign keys: [] 
+[jcms-platform 2017-03-14 18:13:36,581](INFO) - org.hibernate.tool.hbm2ddl.TableMetadata - (TableMetadata.java:70) HHH000126: Indexes: [primary] 
+[jcms-platform 2017-03-14 18:13:36,629](INFO) - org.hibernate.tool.hbm2ddl.TableMetadata - (TableMetadata.java:66) HHH000261: Table found: db_jcms.t_user 
+[jcms-platform 2017-03-14 18:13:36,630](INFO) - org.hibernate.tool.hbm2ddl.TableMetadata - (TableMetadata.java:67) HHH000037: Columns: [password, address, nickname, tel, id, registrytime, email, username] 
+[jcms-platform 2017-03-14 18:13:36,631](INFO) - org.hibernate.tool.hbm2ddl.TableMetadata - (TableMetadata.java:69) HHH000108: Foreign keys: [] 
+[jcms-platform 2017-03-14 18:13:36,632](INFO) - org.hibernate.tool.hbm2ddl.TableMetadata - (TableMetadata.java:70) HHH000126: Indexes: [primary] 
+[jcms-platform 2017-03-14 18:13:36,636](INFO) - org.hibernate.tool.hbm2ddl.SchemaUpdate - (SchemaUpdate.java:242) HHH000232: Schema update complete 

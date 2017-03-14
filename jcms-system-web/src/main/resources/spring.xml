@@ -85,4 +85,6 @@
 			<tx:method name="clear*" propagation="REQUIRED"/>
 		</tx:attributes>
 	</tx:advice>
+	<import resource="classpath:spring-config-cache.xml"/>
+	<import resource="classpath:spring-config-shiro.xml"/>
 </beans>      
